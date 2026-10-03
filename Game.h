@@ -1,4 +1,8 @@
 #pragma once
+#pragma push_macro("new")
+#undef new
+#include <vector>
+#pragma pop_macro("new")
 #include "Box.h"
 #include "Ball.h"
 
@@ -7,8 +11,9 @@ class Game
 	Ball ball;
 	Box paddle;
 
-	// TODO #1 - Instead of storing 1 brick, store a vector of bricks (by value)
-	Box brick;
+	std::vector<Box> bricks;
+	bool won = false;
+	bool lost = false;
 
 public:
 	Game();
